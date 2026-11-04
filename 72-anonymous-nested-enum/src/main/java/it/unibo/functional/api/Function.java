@@ -7,7 +7,6 @@ package it.unibo.functional.api;
  * @param <O> the output type
  */
 public interface Function<I, O> {
-
     /**
      * Calls the function.
      *
@@ -23,7 +22,11 @@ public interface Function<I, O> {
      * @return A new {@code Function} that implements the identity function with the provided type
      */
     static <T> Function<T, T> identity() {
-        return null;
+        return new Function<T,T>() {
+            public T call(T input){
+            return input;
+           } 
+        };
     }
 
 }
